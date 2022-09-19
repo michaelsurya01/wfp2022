@@ -21,6 +21,28 @@ Route::get('/namasaya', function () {
     return view('welcome');
 });
 
+Route::get('foo', function () {
+    return "Hellow World";
+});
+
+Route::view('/selamatdatang', 'welcome');
+
+Route::get('greeting', function () {
+    return view('welcome', ['name'=>'Michael']);
+});
+
+Route::get('/my', function () {
+    return view('mybiodata');
+});
+
+Route::get('/myfriend/{nrp?}', function ($nrp = null) {
+    return view('myfriend', ['nrp'=> $nrp]);
+})->name('myfriend');
+
+
+
+
+// TIDAK BISA METHOD POST MEMANGGIL VIEW
 // Route::Post('', function () {
 //     return view('welcome');
 // });
