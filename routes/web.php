@@ -39,6 +39,10 @@ Route::get('/myfriend/{nrp?}', function ($nrp = null) {
     return view('myfriend', ['nrp'=> $nrp]);
 })->name('myfriend');
 
+Route::resource('product', ProductController::class);
+// Route::view('/product/index', 'welcome');
+// Route::get('/product/index', 'Controller@index');
+
 
 
 
