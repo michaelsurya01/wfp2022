@@ -58,7 +58,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $dataproduct = DB::table('product')->where('id',$id)->first();
+        dd($dataproduct);
+        return view('poduct.show', compact('dataproduct'));
     }
 
     /**
