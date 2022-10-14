@@ -1,5 +1,21 @@
 @extends('layout.conquer')
 
+@section('javascript')
+<script>
+function showInfo()
+{
+  $.ajax({
+    type:'POST',
+    url:'{{route("product.showinfo")}}',
+    data:'_token=<?php echo csrf_token() ?>',
+    success: function(data){
+       $('#showinfo').html(data.msg)
+    }
+  });
+}
+</script>
+@endsection
+
 @section('content')
 <div class="container">
   <table class="table">
@@ -14,6 +30,16 @@
       </tr>
     </thead>
     <tbody>
+      {{-- <li>
+        <a href="#">Welcome</a>
+      </li>
+      <li>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" onclick="showInfo()">
+          <i class="icon-bulb"></a></i>
+      </li> 		 --}}
+      <div id='showinfo'></div>
+   
       @foreach ($queryModel as $data)
       <tr>
         <th scope="row">{{ $data->id }}</th>

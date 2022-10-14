@@ -96,4 +96,20 @@ class ProductController extends Controller
     {
         //
     }
+    public function showInfo()
+    {
+        // return response()->json(array(
+        //     'status'=>'oke',
+        //     'msg'=>"<div class='alert alert-info'>
+        //              Did you know? <br>This message is sent by a Controller.'</div>"
+        //   ),200);
+        
+        $result=Product::orderBy('harga','DESC')->first();
+        return response()->json(array(
+          'status'=>'oke',
+          'msg'=>"<div class='alert alert-info'>
+          Did you know? <br>The most expensive product is ". $result->nama . "</div>"
+        ),200);
+      
+    }
 }

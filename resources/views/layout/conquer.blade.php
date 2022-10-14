@@ -877,6 +877,12 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- BEGIN CONTENT -->
 	<div class="page-content-wrapper">
 		<div class="page-content">
+			<li>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" onclick="showInfo()">
+				<i class="icon-bulb"></a></i>
+			</li> 		
+			<div id='showinfo'></div>
             @yield('content')
         </div>
 	</div>
@@ -948,6 +954,8 @@ jQuery(document).ready(function() {
    Tasks.initDashboardWidget();
 });
 </script>
+
+@yield('javascript')
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

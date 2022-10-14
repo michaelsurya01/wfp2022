@@ -40,6 +40,7 @@ Route::get('/myfriend/{nrp?}', function ($nrp = null) {
 })->name('myfriend');
 
 Route::resource('product', ProductController::class);
+Route::post('/product/showinfo', 'ProductController@showinfo')->name('product.showinfo');
 // Route::view('/product/index', 'welcome');
 // Route::get('/product/index', 'Controller@index');
 
