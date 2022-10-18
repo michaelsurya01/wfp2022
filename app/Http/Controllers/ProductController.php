@@ -112,4 +112,13 @@ class ProductController extends Controller
         ),200);
       
     }
+
+    public function showProduct(Request $request)
+    {
+        $product = Product::find($request->idproduct);
+        return response()->json(array(
+            'status'=>'oke',
+            'msg' => view('product.show',compact('product'))->render()
+        ),200);
+    }
 }

@@ -41,6 +41,7 @@ Route::get('/myfriend/{nrp?}', function ($nrp = null) {
 
 Route::resource('product', ProductController::class);
 Route::post('/product/showinfo', 'ProductController@showinfo')->name('product.showinfo');
+Route::post('/product/showproduct', 'ProductController@showProduct')->name('product.showproduct');
 // Route::view('/product/index', 'welcome');
 // Route::get('/product/index', 'Controller@index');
 

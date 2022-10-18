@@ -13,6 +13,21 @@ function showInfo()
     }
   });
 }
+
+function showProduct(id)
+{
+  $.ajax({
+    type:'POST',
+    url:'{{route("product.showproduct")}}',
+    data:{
+      '_token':'<?php echo csrf_token() ?>',
+     'idproduct':id
+    },
+    success: function(data){
+       $('#modalkonten').html(data.msg)
+    }
+  });
+}
 </script>
 @endsection
 
@@ -52,15 +67,9 @@ function showInfo()
 
         {{-- modal with controller --}}
         <td>
-          <a class='btn btn-info' href="{{route('product.show',$data->id)}}"
-            data-target="#show{{$data->id}}" data-toggle='modal'>detail</a> 
-          <div class="modal fade" id="show{{$data->id}}" tabindex="-1" role="basic" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <img class="loading" src="assets/img/ajax-loading.gif" alt="">
-              </div>
-            </div>
-          </div>  
+          <a class='btn btn-info' onclick="showProduct({{$data->id}})"
+            data-target="#modalShowProduct" data-toggle='modal'>detail</a> 
+          
         </td>
       </tr>
 
@@ -93,5 +102,13 @@ function showInfo()
       @endforeach      
     </tbody>
 </table>
+
+<div class="modal fade" id="modalShowProduct" tabindex="-1" role="basic" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="modalkonten">
+      <img class="loading" src="assets/img/ajax-loading.gif" alt="">
+    </div>
+  </div>
+</div>  
 </div>
 @endsection
